@@ -1,0 +1,19 @@
+{
+    "name": "farzan19/motorbike",
+    "description": "A test for mootorbike Crud",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ali yousefi",
+            "email": "aliyousefi.tec@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "Glad\\Motor\\" : "src/"
+        }
+    }
+
+}
