@@ -27,5 +27,5 @@ if(isset($_GET['id'])){
     <li><?= $motor['color'] ?> </li>
     <li><?= $motor['price'] ?> </li>
     <li><?= $motor['weight'] ?> </li>
-    <img src="<?= $motor['image'] ?> alt="Image">
+    <img src="<?= base_path() . '/images/' . $motor['image'] ?>" alt="Image">
 </ul>
