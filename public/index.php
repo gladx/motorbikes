@@ -11,7 +11,11 @@ require 'init.php';
 use Glad\Motor\Motorbikes;
 
 $m = new Motorbikes();
-$motors = $m->all();
+$page = 0;
+if(isset($_GET['page'])){
+    $page =$_GET['page'];
+}
+$motors = $m->all($page);
 
 ?>
 
@@ -24,3 +28,15 @@ $motors = $m->all();
 
 <?php endforeach; ?>
 </ul>
+
+<p>
+    <?php
+    $pages = floor(($m->count() / 5));
+    for($i = 0; $i <= $pages ; $i++) : ?>
+    <?php if($i == 0) : ?>
+            <a href="<?= base_path() ?>/index.php?page=<?= $i ?>"> Index </a>
+    <?php else :?>
+        &nbsp;<a href="<?= base_path() ?>/index.php?page=<?= $i ?>"> Page <?= $i ?> </a>
+    <?php endif; ?>
+    <?php endfor; ?>
+</p>

@@ -22,9 +22,10 @@ class Motorbikes
      *
      * @return array
      */
-    public function all()
+    public function all($page = null)
     {
-        $stmt = $this->db->prepare('SELECT * FROM motorbikes');
+        $offset = isset($page) ? ($page * 5) : 0; // TODO: HarCode
+        $stmt = $this->db->prepare('SELECT * FROM motorbikes Limit 5 Offset ' . $offset);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -48,5 +49,11 @@ class Motorbikes
         $stmt = $this->db->prepare($query);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
+    }
+
+    public function count(){
+        $stmt = $this->db->prepare('SELECT count(*) FROM motorbikes');
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 }
