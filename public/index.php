@@ -18,7 +18,9 @@ $motors = $m->all();
 <a href="<?= base_path() ?>/add.php"> Add </a>
 
 <ul>
-<?php foreach($motors as $motor) : ?>
+    <?php foreach($motors as $motor) : ?>
    <li> <?= $motor['model'] ?> </li>
+    <a href="<?= base_path() ?>/view.php?id=<?= $motor['id'] ?>"> View </a>
+
 <?php endforeach; ?>
 </ul>

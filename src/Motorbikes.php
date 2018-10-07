@@ -42,4 +42,11 @@ class Motorbikes
         return $stmt->execute($motor);
     }
 
+    public function getOne($id)
+    {
+        $query = "SELECT * from motorbikes where id = :id LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
 }
