@@ -1,4 +1,4 @@
-#Motorbike
+# Motorbike
 
 # create database
 ```
@@ -22,6 +22,9 @@
 
 ```
 
-#notes
+# notes
 
 please before run set base path in helpers.php
+
+# todo
+Ad filtering (forexample by color)
