@@ -22,10 +22,13 @@ class Motorbikes
      *
      * @return array
      */
-    public function all($page = null)
+    public function all($page = null, $sort = 'id')
     {
-        $offset = isset($page) ? ($page * 5) : 0; // TODO: HarCode
-        $stmt = $this->db->prepare('SELECT * FROM motorbikes Limit 5 Offset ' . $offset);
+
+        $offset = isset($page) ? ($page * 5) : '0'; // TODO: HarCode
+        var_dump('SELECT * FROM motorbikes  ORDER BY ' . $sort . ' Limit 5 Offset ' . $offset );
+        
+        $stmt = $this->db->prepare('SELECT * FROM motorbikes  ORDER BY ' . $sort . ' Limit 5 Offset ' . $offset);
         $stmt->execute();
         return $stmt->fetchAll();
     }
