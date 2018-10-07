@@ -11,4 +11,14 @@ require 'init.php';
 use Glad\Motor\Motorbikes;
 
 $m = new Motorbikes();
-print_r($m->all());
+$motors = $m->all();
+
+?>
+
+<a href="<?= base_path() ?>/add.php"> Add </a>
+
+<ul>
+<?php foreach($motors as $motor) : ?>
+   <li> <?= $motor['model'] ?> </li>
+<?php endforeach; ?>
+</ul>
